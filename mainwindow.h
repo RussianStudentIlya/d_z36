@@ -16,10 +16,10 @@ class MainWindow : public QMainWindow
 
 public:
     //MainWindow(QWidget *parent = nullptr); - исходное
-    MainWindow(std::shared_ptr<Chat> command_chat =  std::make_shared<Chat>(), QWidget *parent = nullptr);
+    MainWindow(std::shared_ptr<Chat> command_chat = nullptr, QWidget *parent = nullptr);
     ~MainWindow();
     //static MainWindow* createClient();
-    static MainWindow* createClient(std::shared_ptr<Chat> command_chat =  std::make_shared<Chat>());
+    static MainWindow* createClient(std::shared_ptr<Chat> command_chat = nullptr);
 
 private slots:
     void on_sendMessagesButton_clicked();

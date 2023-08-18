@@ -4,11 +4,6 @@
 #include <QWidget>
 #include <QMessageBox>
 #include <fstream>
-#include "myClassChat/iTables.h"
-#include "myClassChat/mySQL_db.h"
-#include "myClassChat/db_Table.h"
-#include "myClassChat/User.h"
-#include "myClassChat/Message.h"
 #include "myClassChat/chat.h"
 
 namespace Ui {
@@ -27,7 +22,7 @@ public:
 
    //template <typename T> std::vector<T> get_config_file(const std::string fileName); // Считывание конфигурационного файла
 
-    void setChat(std::shared_ptr<Chat> chat =  std::make_shared<Chat>());
+    void setChat(std::shared_ptr<Chat> chat);
 
 signals:
     void registrationRequested();

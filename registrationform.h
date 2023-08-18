@@ -5,12 +5,6 @@
 #include "myClassChat/chat.h"
 #include <QMessageBox>
 
-#include "myClassChat/iTables.h"
-#include "myClassChat/mySQL_db.h"
-#include "myClassChat/db_Table.h"
-#include "myClassChat/User.h"
-#include "myClassChat/Message.h"
-
 namespace Ui {
 class RegistrationForm;
 }
