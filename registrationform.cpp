@@ -1,11 +1,13 @@
 #include "registrationform.h"
 #include "ui_registrationform.h"
 
-RegistrationForm::RegistrationForm(QWidget *parent) :
+RegistrationForm::RegistrationForm(std::shared_ptr<Chat> chat, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::RegistrationForm)
 {
     ui->setupUi(this);
+
+    this->command_chat = chat;
 
     //std::string host = "localhost";
     //std::string user = "root";
@@ -14,9 +16,16 @@ RegistrationForm::RegistrationForm(QWidget *parent) :
 
     ui->LoginEdit->setReadOnly(true);
 
+
+    if(command_chat != nullptr)
+    {
+        command_chat->startChat();
+
+    }
+
     //command_chat = std::make_shared<Chat>(host, user, password, dbName, 's');
 
-    command_chat->startChat();
+    //command_chat->startChat();
 
     /*if(command_chat->get_ChatStart())
     {
@@ -54,10 +63,10 @@ RegistrationForm::~RegistrationForm()
     delete ui;
 }
 
-void RegistrationForm::setChat(std::shared_ptr<Chat> chat)
+/*void RegistrationForm::setChat(std::shared_ptr<Chat> chat)
 {
     this->command_chat = chat;
-}
+}*/
 
 /*void RegistrationForm::setChat(std::shared_ptr<Chat> chat)
 {

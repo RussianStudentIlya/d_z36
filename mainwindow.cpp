@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "startscrean.h"
+#include "authorizationform.h"
+#include "registrationform.h"
 
 MainWindow::MainWindow(std::shared_ptr<Chat> command_chat, QWidget *parent)
     : QMainWindow(parent)
@@ -32,6 +34,8 @@ MainWindow::~MainWindow()
 MainWindow *MainWindow::createClient(std::shared_ptr<Chat> command_chat)
 {
     StartScrean s(command_chat);
+    AuthorizationForm aF(command_chat);
+    RegistrationForm rF(command_chat);
     auto result = s.exec();
 
     if(result == QDialog::Rejected)

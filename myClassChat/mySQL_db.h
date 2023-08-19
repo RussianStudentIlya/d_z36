@@ -21,7 +21,9 @@ public:
 	bool create_DB(const std::string& dbName); // Создание новой БД
 	void connection_new_DB(const std::string& dbName); // Подключение к новой БД
 	const std::string get_dbName() const; // Получить имя созданной БД
-	const bool getConnectStatus() const;
+
+    const bool getConnectStatus() const;
+    //bool getConnectStatus();
 
 	MYSQL* getMYSQL() { return &this->mysql; }
 

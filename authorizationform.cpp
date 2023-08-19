@@ -1,27 +1,32 @@
 #include "authorizationform.h"
 #include "ui_authorizationform.h"
 
-AuthorizationForm::AuthorizationForm(QWidget *parent) :
+AuthorizationForm::AuthorizationForm(std::shared_ptr<Chat> chat, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::AuthorizationForm)
 {
     ui->setupUi(this);
     //auto list = get_config_file<std::string>("cofig_file.txt");
+    this->command_chat = chat;
 
-
-    std::string host = "localhost";
+    /*std::string host = "localhost";
     std::string user = "root";
     std::string password = "admin_password23";
-    std::string dbName = "db_chat_dz25";
+    std::string dbName = "db_chat_dz25";*/
 
 
     //command_chat = std::make_shared<Chat>(host, user, password, dbName, 's');
 
-    command_chat->startChat();
-
-    if(command_chat->get_ChatStart())
+    if(this->command_chat != nullptr)
     {
-        ui->statusConnectLabel->setText("Connected to " + QString::fromStdString(command_chat->get_db_Name()));
+        command_chat->startChat();
+
+        if(command_chat->get_ChatStart())
+        {
+            QString name = QString::number(this->command_chat->get_ChatStart());
+            QMessageBox::information(this, "AuthorizationForm", name);
+            ui->statusConnectLabel->setText("Connected to " + QString::fromStdString(this->command_chat->get_db_Name()));
+        }
     }
 
     /*this->_dbConnect = mySQL_db(host, user, password, dbName);
@@ -62,10 +67,10 @@ AuthorizationForm::~AuthorizationForm()
     delete ui;
 }
 
-void AuthorizationForm::setChat(std::shared_ptr<Chat> chat)
+/*void AuthorizationForm::setChat(std::shared_ptr<Chat> chat)
 {
     this->command_chat = chat;
-}
+}*/
 
 /*void AuthorizationForm::setChat(std::shared_ptr<Chat> chat)
 {

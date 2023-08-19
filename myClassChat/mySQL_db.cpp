@@ -79,5 +79,5 @@ const std::string mySQL_db::get_dbName() const
 
 const bool mySQL_db::getConnectStatus() const
 {
-	return _connectStatus;
+    return this->_connectStatus;
 }

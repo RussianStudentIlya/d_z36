@@ -14,10 +14,10 @@ class RegistrationForm : public QWidget
     Q_OBJECT
 
 public:
-    explicit RegistrationForm(QWidget *parent = nullptr);
+    explicit RegistrationForm(std::shared_ptr<Chat> chat = nullptr, QWidget *parent = nullptr);
     ~RegistrationForm();
 
-    void setChat(std::shared_ptr<Chat> chat);
+    //void setChat(std::shared_ptr<Chat> chat);
 
     //bool check_exists_login(std::string login); // проверка существования логина
 

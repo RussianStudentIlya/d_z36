@@ -7,22 +7,12 @@ StartScrean::StartScrean(std::shared_ptr<Chat> command_chat, QWidget *parent) :
 {
     ui->setupUi(this);
 
-    std::string host = "localhost";
-    std::string user = "root";
-    std::string password = "admin_password23";
-    std::string dbName = "db_chat_dz25";
-
-    command_chat = std::make_shared<Chat>(host, user, password, dbName, 's'); // подключаемся к mysql
-
-    if(command_chat->get_create_DB())
+    if(command_chat != nullptr)
     {
-        ui->authorizationWidget->setChat(command_chat);
-        ui->registrationWidget->setChat(command_chat);
-
-        QMessageBox::information(this, tr("Information"), tr("Connect"));
-    }else
-    {
-        QMessageBox::warning(this, tr("Information"), tr("no connect"));
+        QMessageBox::information(this, tr("Info"), "Connect");
+        //ui->authorizationWidget->setChat(command_chat);
+        //AuthorizationForm af(command_chat);
+        //ui->registrationWidget->setChat(command_chat);
     }
 
     connect(ui->registrationWidget, &RegistrationForm::authorizationRequested, this, &StartScrean::setAuthorizationForm);
@@ -32,6 +22,8 @@ StartScrean::StartScrean(std::shared_ptr<Chat> command_chat, QWidget *parent) :
     connect(ui->authorizationWidget, &AuthorizationForm::registrationRequested, this, &StartScrean::setRegistrationForm);
     connect(ui->authorizationWidget, &AuthorizationForm::accepted, this, &StartScrean::onLoggedIn);
     connect(ui->authorizationWidget, &AuthorizationForm::rejected, this, &StartScrean::onRejectedRequested);
+
+    //ui->setupUi(this);
 }
 
 StartScrean::~StartScrean()

@@ -14,7 +14,7 @@ class StartScrean : public QDialog
     Q_OBJECT
 
 public:
-    explicit StartScrean(std::shared_ptr<Chat> command_chat = nullptr, QWidget *parent = nullptr);
+    explicit StartScrean(std::shared_ptr<Chat> command_chat, QWidget *parent = nullptr);
     ~StartScrean();
 
     void setAuthorizationForm();

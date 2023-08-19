@@ -15,14 +15,14 @@ class AuthorizationForm : public QWidget
     Q_OBJECT
 
 public:
-    explicit AuthorizationForm(QWidget *parent = nullptr);
+    explicit AuthorizationForm(std::shared_ptr<Chat> chat = nullptr, QWidget *parent = nullptr);
     ~AuthorizationForm();
 
     //bool login_and_password_comparison(std::string login, std::string h_password);
 
    //template <typename T> std::vector<T> get_config_file(const std::string fileName); // Считывание конфигурационного файла
 
-    void setChat(std::shared_ptr<Chat> chat);
+    //void setChat(std::shared_ptr<Chat> chat);
 
 signals:
     void registrationRequested();
