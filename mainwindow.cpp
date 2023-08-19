@@ -34,8 +34,8 @@ MainWindow::~MainWindow()
 MainWindow *MainWindow::createClient(std::shared_ptr<Chat> command_chat)
 {
     StartScrean s(command_chat);
-    AuthorizationForm aF(command_chat);
-    RegistrationForm rF(command_chat);
+    //AuthorizationForm aF(command_chat);
+    //RegistrationForm rF(command_chat);
     auto result = s.exec();
 
     if(result == QDialog::Rejected)

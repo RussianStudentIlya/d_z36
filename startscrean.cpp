@@ -5,7 +5,17 @@ StartScrean::StartScrean(std::shared_ptr<Chat> command_chat, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::StartScrean)
 {
+    ui->authorizationWidget = new AuthorizationForm(command_chat);
+    ui->registrationWidget = new RegistrationForm(command_chat);
+
     ui->setupUi(this);
+
+    //this->authorizationWidget = new QWidget;
+    //this->registrationWidget = new QWidget;
+
+    //this->sW = new QStackedWidget;
+    //this->sW->addWidget(authorizationWidget);
+    //this->sW->addWidget(registrationWidget);
 
     if(command_chat != nullptr)
     {

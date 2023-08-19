@@ -5,6 +5,9 @@
 #include <QMessageBox>
 #include "myClassChat/chat.h"
 
+
+#include <QStackedWidget>
+
 namespace Ui {
 class StartScrean;
 }
@@ -31,6 +34,10 @@ private:
     std::string _loginCurrentUser;
 
     std::shared_ptr<Chat> command_chat;
+
+    QWidget *registrationWidget;
+    QWidget *authorizationWidget;
+    QStackedWidget *sW;
 };
 
 #endif // STARTSCREAN_H
